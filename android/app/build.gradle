@@ -1,0 +1,51 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'com.google.gms.google-services' // (if you need this for Firebase or other services)
+    id 'dev.flutter.flutter-plugin' // Correct plugin declaration for Flutter
+}
+
+android {
+    namespace = "com.example.location_screen_app"
+
+    // Set the compileSdkVersion to 34 as required by plugins
+    compileSdkVersion 34
+    defaultConfig {
+        minSdkVersion 21  // or higher based on your app's requirement
+        targetSdkVersion 34
+    }
+    ndkVersion flutter.ndkVersion
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8
+    }
+
+    defaultConfig {
+        // Specify your application ID (package name)
+        applicationId = "com.example.location_screen_app"
+        
+        // Use the minSdkVersion and targetSdkVersion from Flutter
+        minSdkVersion flutter.minSdkVersion
+        targetSdkVersion 34 // Set targetSdkVersion explicitly to 34
+
+        versionCode flutter.versionCode
+        versionName flutter.versionName
+    }
+
+    buildTypes {
+        release {
+            // TODO: Add your own signing config for the release build.
+            // Signing with the debug keys for now, so `flutter run --release` works.
+            signingConfig = signingConfigs.debug
+        }
+    }
+}
+
+flutter {
+    source = "../.."
+}
